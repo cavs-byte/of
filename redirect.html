@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>🔥 Ofertas Relâmpago 🔥</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff5733, #ffc300);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            min-height: 100vh;
+            margin: 0;
+        }
+        h1 { font-size: 2.5em; }
+        .loader {
+            border: 8px solid rgba(255,255,255,0.3);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 30px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        button {
+            background: white;
+            color: #ff5733;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔥 Ofertas Relâmpago 🔥</h1>
+    <p>Redirecionando pra oferta...</p>
+    <div class="loader"></div>
+    <p id="msg">⚡ Aguarde 2 segundos!</p>
+    <button onclick="irAgora()">Ir agora 👉</button>
+    
+    <script>
+        // Pega o parâmetro "u" da URL (URL da oferta)
+        const params = new URLSearchParams(window.location.search);
+        const url = params.get('u');
+        
+        function irAgora() {
+            if (url) {
+                window.location.href = decodeURIComponent(url);
+            }
+        }
+        
+        // Redireciona automaticamente após 2s
+        if (url) {
+            setTimeout(irAgora, 2000);
+        } else {
+            document.getElementById('msg').innerHTML = '⚠️ Link inválido';
+        }
+    </script>
+</body>
+</html>
